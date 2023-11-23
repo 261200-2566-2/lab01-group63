@@ -1,17 +1,46 @@
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;   //Import integer
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        int n;
+        Scanner input = new Scanner(System.in);  // check input
+        System.out.print("Enter the number : ");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        n = input.nextInt();     //input n
+        int[] arr = new int[n];  //crete arr
+        System.out.print("Array elements before sorting: \n");
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        for(int i = 0; i < n; i++){     //loop input
+            arr[i] = input.nextInt();   //arr input n
+        }
+
+        /*Test reading array elements from Input user
+        System.out.println("Array elements are: ");
+        for (int i = 0; i < n; i++)
+        {
+            System.out.println(arr[i]);
+        }
+        */
+
+        sorted_ascending(arr, arr.length);
+        for (int j : arr) {
+            System.out.println(j);
+        }
+    }
+
+    private static void sorted_ascending(int[] arr,int n){
+        {
+            for (int i = 0; i < n; i++){
+                int j = i;
+                int k = arr[i];
+                while ((j > 0) && (arr[j-1] < k))
+                {
+                    arr[j] = arr[j-1];
+                    j--;
+                }
+                arr[j] = k;
+            }
         }
     }
 }
